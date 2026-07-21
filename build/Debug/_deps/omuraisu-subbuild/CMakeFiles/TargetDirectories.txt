@@ -1,0 +1,3 @@
+/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/CMakeFiles/omuraisu-populate.dir
+/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/CMakeFiles/edit_cache.dir
+/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/CMakeFiles/rebuild_cache.dir

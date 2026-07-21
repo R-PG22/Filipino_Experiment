@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/CMakeFiles/omuraisu-populate"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/CMakeFiles/omuraisu-populate.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/CMakeFiles/omuraisu-populate-complete.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-build.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-configure.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-download.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-install.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-patch.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-test.rule"
+		},
+		{
+			"file" : "/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/src/omuraisu-populate-stamp/omuraisu-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"omuraisu-populate"
+		],
+		"name" : "omuraisu-populate"
+	}
+}

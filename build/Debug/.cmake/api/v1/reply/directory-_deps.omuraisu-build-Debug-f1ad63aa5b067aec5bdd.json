@@ -1,0 +1,357 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/Debug/_deps/omuraisu-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 266,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 274,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 279,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 300,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_coordinate.a"
+			],
+			"targetId" : "omuraisu_coordinate::@2c1cc316a1144f642a04",
+			"targetIndex" : 6,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_pid.a"
+			],
+			"targetId" : "omuraisu_pid::@2c1cc316a1144f642a04",
+			"targetIndex" : 16,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_chassis.a"
+			],
+			"targetId" : "omuraisu_chassis::@2c1cc316a1144f642a04",
+			"targetIndex" : 3,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cobs.a"
+			],
+			"targetId" : "omuraisu_cobs::@2c1cc316a1144f642a04",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_can.a"
+			],
+			"targetId" : "omuraisu_can::@2c1cc316a1144f642a04",
+			"targetIndex" : 2,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_dji.a"
+			],
+			"targetId" : "omuraisu_dji::@2c1cc316a1144f642a04",
+			"targetIndex" : 15,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_controller.a"
+			],
+			"targetId" : "omuraisu_controller::@2c1cc316a1144f642a04",
+			"targetIndex" : 5,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_servo.a"
+			],
+			"targetId" : "omuraisu_servo::@2c1cc316a1144f642a04",
+			"targetIndex" : 17,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_can.a"
+			],
+			"targetId" : "omuraisu_cpp_can::@2c1cc316a1144f642a04",
+			"targetIndex" : 7,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_chassis.a"
+			],
+			"targetId" : "omuraisu_cpp_chassis::@2c1cc316a1144f642a04",
+			"targetIndex" : 8,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_cobs.a"
+			],
+			"targetId" : "omuraisu_cpp_cobs::@2c1cc316a1144f642a04",
+			"targetIndex" : 9,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_controller.a"
+			],
+			"targetId" : "omuraisu_cpp_controller::@2c1cc316a1144f642a04",
+			"targetIndex" : 10,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_coordinate.a"
+			],
+			"targetId" : "omuraisu_cpp_coordinate::@2c1cc316a1144f642a04",
+			"targetIndex" : 11,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_dji.a"
+			],
+			"targetId" : "omuraisu_cpp_dji::@2c1cc316a1144f642a04",
+			"targetIndex" : 12,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_pid.a"
+			],
+			"targetId" : "omuraisu_cpp_pid::@2c1cc316a1144f642a04",
+			"targetIndex" : 13,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/omuraisu-build/libomuraisu_cpp_servo.a"
+			],
+			"targetId" : "omuraisu_cpp_servo::@2c1cc316a1144f642a04",
+			"targetIndex" : 14,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "build/Debug/_deps/omuraisu-src/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/omuraisu",
+			"exportName" : "omuraisu-targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "omuraisu_coordinate::@2c1cc316a1144f642a04",
+					"index" : 6
+				},
+				{
+					"id" : "omuraisu_pid::@2c1cc316a1144f642a04",
+					"index" : 16
+				},
+				{
+					"id" : "omuraisu_chassis::@2c1cc316a1144f642a04",
+					"index" : 3
+				},
+				{
+					"id" : "omuraisu_cobs::@2c1cc316a1144f642a04",
+					"index" : 4
+				},
+				{
+					"id" : "omuraisu_can::@2c1cc316a1144f642a04",
+					"index" : 2
+				},
+				{
+					"id" : "omuraisu_dji::@2c1cc316a1144f642a04",
+					"index" : 15
+				},
+				{
+					"id" : "omuraisu_controller::@2c1cc316a1144f642a04",
+					"index" : 5
+				},
+				{
+					"id" : "omuraisu_servo::@2c1cc316a1144f642a04",
+					"index" : 17
+				},
+				{
+					"id" : "omuraisu_c::@2c1cc316a1144f642a04",
+					"index" : 0
+				},
+				{
+					"id" : "omuraisu_cpp_can::@2c1cc316a1144f642a04",
+					"index" : 7
+				},
+				{
+					"id" : "omuraisu_cpp_chassis::@2c1cc316a1144f642a04",
+					"index" : 8
+				},
+				{
+					"id" : "omuraisu_cpp_cobs::@2c1cc316a1144f642a04",
+					"index" : 9
+				},
+				{
+					"id" : "omuraisu_cpp_controller::@2c1cc316a1144f642a04",
+					"index" : 10
+				},
+				{
+					"id" : "omuraisu_cpp_coordinate::@2c1cc316a1144f642a04",
+					"index" : 11
+				},
+				{
+					"id" : "omuraisu_cpp_dji::@2c1cc316a1144f642a04",
+					"index" : 12
+				},
+				{
+					"id" : "omuraisu_cpp_pid::@2c1cc316a1144f642a04",
+					"index" : 13
+				},
+				{
+					"id" : "omuraisu_cpp::@2c1cc316a1144f642a04",
+					"index" : 0
+				},
+				{
+					"id" : "omuraisu_cpp_servo::@2c1cc316a1144f642a04",
+					"index" : 14
+				},
+				{
+					"id" : "omuraisu::@2c1cc316a1144f642a04",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/omuraisu-build/CMakeFiles/Export/b6a7a9417d4a6dc05385d18f9b19d206/omuraisu-targets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/omuraisu",
+			"paths" : 
+			[
+				"build/Debug/_deps/omuraisu-build/omuraisu-config.cmake",
+				"build/Debug/_deps/omuraisu-build/omuraisu-config-version.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/omuraisu-build",
+		"source" : "build/Debug/_deps/omuraisu-src"
+	}
+}
