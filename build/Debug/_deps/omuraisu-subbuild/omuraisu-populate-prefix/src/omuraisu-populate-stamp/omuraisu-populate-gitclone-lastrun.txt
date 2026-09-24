@@ -3,7 +3,7 @@
 # No other meaning or use of this file is supported.
 
 method=git
-command=/usr/bin/cmake;-P;/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/tmp/omuraisu-populate-gitclone.cmake
+command=/home/r-pg/.local/share/stm32cube/bundles/cmake/4.2.3+st.1/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-subbuild/omuraisu-populate-prefix/tmp/omuraisu-populate-gitclone.cmake
 source_dir=/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps/omuraisu-src
 work_dir=/home/r-pg/Projects/Filipino_Experiment/build/Debug/_deps
 repository=https://github.com/omuct-robotclub/omuraisu-library-c.git
@@ -12,4 +12,4 @@ init_submodules=TRUE
 recurse_submodules=--recursive
 submodules=
 CMP0097=NEW
-
+      

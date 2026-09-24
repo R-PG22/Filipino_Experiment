@@ -17,26 +17,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <cstdint>
-#include <cstdio>
-#include <cmath>
 #include "main.h"
-#include "controller.hpp"
-#include "stm32f4xx_hal.h"
-
-#ifdef __cplusplus
-extern "C"{
-#endif
-
-#include "can/can_cube.h"
-#include "can/can_interface.h"
-#include "can/can_stm32.h"
-#include "dji/robomas.h"
-#include "pid/pid.h"
-
-#ifdef __cplusplus
-}
-#endif
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -65,13 +46,6 @@ CAN_HandleTypeDef hcan2;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-CanCube can_cube;
-CanStm32Context stm32;
-CanCubeOps ops;
-CanMessage msg;
-Robomas robomas;
-CanBus* bus;
-ControllerReader reader;
 
 /* USER CODE END PV */
 
@@ -82,67 +56,12 @@ static void MX_CAN1_Init(void);
 static void MX_CAN2_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void Can_Callback(const CanMessage* msg, void* user_arg);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t CANSend(CAN_HandleTypeDef *hcan, uint32_t id, const uint8_t *data, uint8_t len){
-    CAN_TxHeaderTypeDef tx_header;
-    uint32_t tx_mailbox;
 
-    tx_header.StdId              = id & 0x7FFU;  /* 11bit標準ID */
-    tx_header.ExtId              = 0;
-    tx_header.IDE                = CAN_ID_STD;
-    tx_header.RTR                = CAN_RTR_DATA;
-    tx_header.DLC                = len;
-    tx_header.TransmitGlobalTime = DISABLE;
-
-    if (HAL_CAN_AddTxMessage(hcan, &tx_header, data, &tx_mailbox) != HAL_OK) {
-        return 1;
-    }
-    return 0;
-}
-
-uint8_t rxBuf[1];  // 受信バッファ
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-    if (huart->Instance == USART2) // どのUARTかを判別する
-    {
-        reader.read(rxBuf[0]);
-        HAL_UART_Receive_IT(&huart2, rxBuf, 1);  // 次の受信を再開（必須）
-    }
-}
-
-enum mekanism{
-  Filipino_1,
-  Filipino_2,
-  Filipino_3,
-  Filipino_1_add,
-  Filipino_1_sub,
-  Itoko,
-  mek_len
-};
-int mek_pwm[mek_len] = {0};
-
-int mek_conf[mek_len][2] = {
-  {reader.ci,   -8000}, // Filipino_1
-  {reader.tri, -10000}, // Filipino_2
-  {reader.sq,  -12000}, // Filipino_3
-  {reader.r,     -250}, // Filipino_1_add
-  {reader.l,      250}, // Filipino_1_sub
-  {reader.cr,   -3000}  // Itoko
-};
-
-void mek_act(){
-  for(int i = 0; i < mek_len; i++){
-    if(reader.controller_val[mek_conf[i][0]]){
-      mek_pwm[i] = mek_conf[i][1];
-    }else{
-      mek_pwm[i] = 0;
-    }
-  }
-}
 /* USER CODE END 0 */
 
 /**
@@ -158,10 +77,8 @@ int main(void)
 
   /* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes tstick_val: %d he Flash interface and the Systick. */
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-
 
   /* USER CODE BEGIN Init */
 
@@ -180,42 +97,6 @@ int main(void)
   MX_CAN2_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  // CANの送受信開始の設定
-  can_stm32_context_init(&stm32, &can_cube, &hcan2, CAN_STM32_KIND_CAN, 0); // hcan1は使用するCANバスに応じて変更
-  can_stm32_make_ops(&ops);
-  can_cube_init(&can_cube, &stm32, &ops);
-  can_stm32_register(&stm32);
-  can_cube_start_read(&can_cube);
-  bus = can_cube_bus(&can_cube);
-
-  HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(USART2_IRQn);
-
-  HAL_CAN_Start(&hcan2);
-  HAL_CAN_Start(&hcan1);
-  HAL_UART_Receive_IT(&huart2, rxBuf, 1);
-    
-  PidController pid;
-
-  rm = om_rm_init(bus);
-  om_rm_set_max_output(&rm, 20000);
-  int max_output = 20000;
-  PidParameter param = {
-    .gain = {.kp = 1.0f, .ki = 0.00f, .kd = 0.001f},
-    .min = -(float)max_output,
-    .max = (float)max_output,
-  };
-  pid = om_pid_init(param);
-
-  bool filipino_reload = false;
-  int16_t output = 0;
-  bool ispush = false;
-  int filipino_add = 0;
-  int filipino_id = 6;
-  int itoko_id = 5;
-  int16_t itoko_output = 0;
-
-  can_cube_set_rx_callback(&can_cube, Can_Callback, NULL);
 
   /* USER CODE END 2 */
 
@@ -223,52 +104,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    uint32_t now = HAL_GetTick();
-    static uint32_t pre = now;
-
-    if (now - pre > 10) {
-    // 機構
-    mek_act();
-
-
-    if(mek_pwm[Filipino_1_add] != 0 || mek_pwm[Filipino_1_sub] != 0){
-      if(!ispush){
-        ispush = true;
-        filipino_add += mek_pwm[Filipino_1_add] + mek_pwm[Filipino_1_sub];
-      }
-    }else{
-      ispush = false;
-    }
-
-    // Filipino
-    bool limit = !HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_0);
-    static int reload_time = 0;
-    if(filipino_reload){
-      reload_time++;
-      if(reload_time < 5) output = output;
-      else if(reload_time < 25) output = 0;
-      else if(reload_time < 29) output = 5000;
-      else filipino_reload = false;
-    }else{
-      output = 0;
-      for(int i = 0; i < 3; i++){
-        output = output == 0 ? mek_pwm[i] : output;
-      }
-      if(output != 0) output += filipino_add;
-      filipino_reload = limit;
-      reload_time = 0;
-    }
-    itoko_output = mek_pwm[Itoko];
-    printf("now:%d\toutput:%d\n", output, filipino_add - mek_conf[Filipino_1][1]);
-
-    // CANSend(&hcan1, 1, (const uint8_t *)output, 8);
-    // CANSend(&hcan1, 128, (const uint8_t *)solenoid, 8);
-    om_rm_set_output(&rm, output, filipino_id);
-    om_rm_set_output(&rm, itoko_output, itoko_id);
-    om_rm_write(&rm);
-
-    pre = now;
-    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -482,22 +317,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-#ifdef __cplusplus
-extern "C"{
-#endif
-int __io_putchar(int ch)
-{
-    HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
-    return ch;
-}
-#ifdef __cplusplus
-}
-#endif
-
-void Can_Callback(const CanMessage* msg, void* user_arg)
-{
-      int id = om_rm_parse(&robomas, msg->id, msg->data);
-}
 
 /* USER CODE END 4 */
 
